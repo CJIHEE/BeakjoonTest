@@ -7,7 +7,10 @@ public class Main {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int A = Integer.parseInt(bf.readLine());
         int B = Integer.parseInt(bf.readLine());
-        System.out.println(A*(B%10)+"\n"+A*(B%100/10)+"\n"+A*(B%1000/100)+"\n"+A*B);
-        }
+        System.out.println(A * (B % 10));
+        System.out.println(A * (B % 100 / 10));
+        System.out.println(A * (B % 1000 / 100));
+        System.out.println(A * B);
 
     }
+}
