@@ -26,8 +26,8 @@ public class Main {
                 if(count == k){
                     return i;
                 }
-                for(int j=i+1; j<=n; j++){
-                    if(arr[j]%i == 0){
+                for(int j=i+i; j<=n; j+=i){
+                    if (arr[j] != -1) {
                         arr[j] =-1;
                         count++;
                         if(count == k){
