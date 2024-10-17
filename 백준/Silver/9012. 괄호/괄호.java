@@ -1,40 +1,40 @@
+import java.io.*;
 import java.util.*;
+
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
 
-    public static void main (String[] args){
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-
-
-        for(int i=0; i<n; i++){
-            System.out.println(solution(sc.next()));
+        // 입력이 끝나기 전에 반복문을 통해서 모두 처리
+        for (int i = 0; i < n; i++) {
+           String input = br.readLine();
+           if (input != null) {
+               System.out.println(solution(input));
+           }
         }
-
     }
 
-    public static String solution(String s){
-       Stack<Character> stack = new Stack<>();
+    private static String solution(String a) {
+        Stack stack = new Stack<>();
+
         String answer = "YES";
-        //System.out.println("s :" + s);
-       for(int i=0; i<s.length(); i++){
-            char x = s.charAt(i);
-           //System.out.println("x :" + x);
-               if(x == '('){
-                    stack.push(x);
-               }
-               else{
-                   if(!stack.isEmpty()){
-                       stack.pop();
-                   }
-                   else{
-                       return "NO";
-                   }
-               }
-       }
-        if(!stack.isEmpty()){
-            answer = "NO";
+        for(int i=0; i < a.length(); i++){
+            if(a.charAt(i) == '('){
+                stack.push('(');
+            }else{
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }else{
+                    return "NO";
+                }
+            }
         }
-       return answer;
+
+        if(!stack.isEmpty()){
+           answer ="NO";
+        }
+
+        return answer;
     }
 }
