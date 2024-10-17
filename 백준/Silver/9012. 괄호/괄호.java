@@ -5,8 +5,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-
-        // 입력이 끝나기 전에 반복문을 통해서 모두 처리
+        
         for (int i = 0; i < n; i++) {
            String input = br.readLine();
            if (input != null) {
