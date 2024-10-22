@@ -1,20 +1,28 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution(int []arr) {
+    public int[] solution(int [] arr) {
+        
         Queue<Integer> queue = new LinkedList<>();
-
         int lastNum = -1;
-        for(int x : arr){
-            if(x != lastNum){
-                queue.add(x);    
+        for(int i=0; i<arr.length; i++){
+            if(queue.isEmpty()){
+                queue.offer(arr[i]);
+                lastNum = arr[i];
+            }else{
+                if(lastNum != arr[i]){
+                    queue.offer(arr[i]);
+                    lastNum = arr[i];
+                }
             }
-            lastNum=x;
-        }        
-        int queueSize = queue.size();
-        int[] answer = new int[queueSize];
-        for(int i=0; i < queueSize; i++){
-            answer[i] = queue.poll();
+        }
+        int size = queue.size();
+        int[] answer = new int[size];
+        
+        for(int i =0; i < size; i++){
+            if(!queue.isEmpty()){
+                answer[i] = queue.poll();
+            }
         }
 
         return answer;
