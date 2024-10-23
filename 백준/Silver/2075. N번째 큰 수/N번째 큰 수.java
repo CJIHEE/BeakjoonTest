@@ -1,26 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+
 public class Main {
-    public static void main(String arg[]){
-        Scanner sc= new Scanner(System.in);
-        int n = sc.nextInt();
+    static int n;
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+        n = Integer.parseInt(bf.readLine());
+        ArrayList<Integer> list = new ArrayList<>();
 
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                pq.offer(sc.nextInt());
+        for(int i =0; i< n; i++){
+            StringTokenizer st = new StringTokenizer(bf.readLine());
+            for(int j=0; j <n; j++){
+                list.add(Integer.parseInt(st.nextToken()));
             }
         }
 
-        System.out.println(solution(n, pq));
-    }
+        System.out.println(soultion(list));
 
-    public static int solution(int n, PriorityQueue<Integer> pq){
-
-        for(int i=0; i<n-1; i++){
-            pq.poll();
         }
-        
-        return pq.poll();
-    }
+
+        private static int soultion(ArrayList<Integer> list){
+            int answer;
+            Collections.sort(list, Collections.reverseOrder());
+            answer = list.get(n-1);
+            return answer;
+        }
 }
